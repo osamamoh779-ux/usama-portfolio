@@ -8,7 +8,7 @@ import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
 import SkillsSection from "@/components/SkillsSection";
 import ExperienceSection from "@/components/ExperienceSection";
-import SummerFunProject from "@/components/SummerFunProject";
+import ProjectsGallery from "@/components/ProjectsGallery";
 import EducationSection from "@/components/EducationSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
@@ -27,8 +27,8 @@ export default function Home() {
       <div id="experience">
         <ExperienceSection />
       </div>
-      <div id="project">
-        <SummerFunProject />
+      <div id="projects">
+        <ProjectsGallery />
       </div>
       <div id="education">
         <EducationSection />
