@@ -24,7 +24,7 @@ export default function AboutSection() {
               <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[oklch(0.72_0.16_200)] to-[oklch(0.78_0.13_85)] opacity-20 blur-xl" />
               <div className="relative w-full h-full rounded-full overflow-hidden border-2 border-[oklch(0.78_0.13_85)]/30 teal-glow">
                 <img
-                  src="/manus-storage/profile_photo_resized_4e886022.png"
+                  src="/manus-storage/profile_new2_15074c91.png"
                   alt="Usama Mohamed"
                   className="w-full h-full object-cover"
                 />
