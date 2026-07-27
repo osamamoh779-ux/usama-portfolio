@@ -8,9 +8,9 @@ import { Briefcase, GraduationCap } from "lucide-react";
 
 const experiences = [
   {
-    role: "Media Buyer — Azurk Digital Marketing Agency",
+    role: "Media Buyer — Azzrk Digital Marketing Agency",
     period: "2023 - 2025",
-    company: "Azurk Digital Marketing Agency",
+    company: "Azzrk Digital Marketing Agency",
     description: "Managed large-scale paid advertising budgets for diverse client portfolios across multiple sectors.",
     details: [
       "Managed large-scale paid advertising budgets for diverse client portfolios across multiple sectors.",

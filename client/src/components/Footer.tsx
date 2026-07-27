@@ -26,7 +26,7 @@ export default function Footer() {
         {/* Contact links */}
         <div className="flex justify-center gap-4 mb-8">
           <a
-            href="https://www.linkedin.com/in/usama-mohamed"
+            href="https://www.linkedin.com/in/usama-mohamed-elsaieed-7282b03a0"
             target="_blank"
             rel="noopener noreferrer"
             className="glass-card rounded-lg px-5 py-3 flex items-center gap-2 text-sm text-muted-foreground hover:text-[oklch(0.72_0.16_200)] hover:border-[oklch(0.72_0.16_200)]/30 transition-all duration-300"
@@ -35,7 +35,7 @@ export default function Footer() {
             LinkedIn
           </a>
           <a
-            href="https://wa.me/201000000000"
+            href="https://wa.me/201013535608"
             target="_blank"
             rel="noopener noreferrer"
             className="glass-card rounded-lg px-5 py-3 flex items-center gap-2 text-sm text-muted-foreground hover:text-[oklch(0.78_0.13_85)] hover:border-[oklch(0.78_0.13_85)]/30 transition-all duration-300"

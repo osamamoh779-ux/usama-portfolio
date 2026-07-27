@@ -36,7 +36,7 @@ export default function ContactSection() {
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
-              href="https://www.linkedin.com/in/usama-mohamed"
+              href="https://www.linkedin.com/in/usama-mohamed-elsaieed-7282b03a0"
               target="_blank"
               rel="noopener noreferrer"
               className="glass-card rounded-lg px-8 py-4 flex items-center gap-3 text-white font-medium hover:border-[oklch(0.72_0.16_200)]/50 transition-all duration-300 teal-glow"
@@ -45,7 +45,7 @@ export default function ContactSection() {
               Connect on LinkedIn
             </a>
             <a
-              href="https://wa.me/201000000000"
+              href="https://wa.me/201013535608"
               target="_blank"
               rel="noopener noreferrer"
               className="glass-card rounded-lg px-8 py-4 flex items-center gap-3 text-white font-medium hover:border-[oklch(0.78_0.13_85)]/50 transition-all duration-300"
