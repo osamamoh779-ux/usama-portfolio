@@ -50,22 +50,21 @@ export default function AboutSection() {
             </p>
             <p className="text-muted-foreground leading-relaxed text-base mb-4">
               I'm Usama Mohamed, a Digital Marketing Specialist & Media Buyer with hands-on experience
-              in managing paid advertising campaigns on Meta platforms. I specialize in analyzing
-              performance, optimizing budgets, and writing persuasive ad copy.
+              in managing paid advertising campaigns across all major platforms. I specialize in
+              analyzing performance, optimizing budgets, and writing persuasive ad copy.
             </p>
             <p className="text-muted-foreground leading-relaxed text-base mb-6">
-              I started my career in medical sales (Medical Representative), which provided me with
-              strong communication, negotiation, and customer behavior understanding before shifting
-              into digital marketing. My focus is on the Saudi and GCC markets, delivering results
-              across Meta, TikTok, Snapchat, and Google platforms.
+              I work across Meta, TikTok, Snapchat, Google, X (Twitter), LinkedIn, and any platform
+              that fits the campaign goals. My focus is on the Saudi and GCC markets, delivering
+              measurable results regardless of the platform.
             </p>
 
             {/* Stats */}
             <div className="grid grid-cols-3 gap-4">
               {[
-                { number: "25+", label: "Campaigns" },
+                { number: "50+", label: "Campaigns Managed" },
                 { number: "3.2M+", label: "Impressions" },
-                { number: "4 Platforms", label: "Managed" },
+                { number: "All Platforms", label: "Flexible" },
               ].map((stat, i) => (
                 <motion.div
                   key={stat.label}
