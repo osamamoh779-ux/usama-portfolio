@@ -1,16 +1,34 @@
 /**
  * Experience Section - Gulf Elegance Design
- * Professional experience timeline
+ * Same color palette: teal (#0EA5E9 range), gold (#D4A843 range), dark background
+ * No new colors added
  */
 import { motion } from "framer-motion";
 import { Briefcase, GraduationCap } from "lucide-react";
 
 const experiences = [
   {
+    role: "Media Buyer — Azurk Digital Marketing Agency",
+    period: "2023 - 2025",
+    company: "Azurk Digital Marketing Agency",
+    description: "Managed large-scale paid advertising budgets for diverse client portfolios across multiple sectors.",
+    details: [
+      "Managed large-scale paid advertising budgets for diverse client portfolios across multiple sectors.",
+      "Developed and implemented comprehensive media plans tailored to specific regional markets, with a primary focus on Saudi Arabia and the UAE.",
+      "Collaborated with creative teams to produce high-performing ad content optimized for regional cultural trends and consumer behavior.",
+      "Monitored and analyzed performance metrics (CTR, CPC, CPA, ROAS) to provide actionable insights and ensure high campaign profitability.",
+    ],
+    icon: Briefcase,
+  },
+  {
     role: "Media Buyer & Digital Marketing Specialist",
     period: "Current",
     company: "Freelance / Agency",
     description: "Managing paid advertising campaigns on Meta, TikTok, Snapchat, and Google for Saudi and GCC market clients. Focus on performance-driven strategies with continuous optimization.",
+    details: [
+      "Managing paid advertising campaigns on Meta, TikTok, Snapchat, and Google for Saudi and GCC market clients.",
+      "Focus on performance-driven strategies with continuous optimization.",
+    ],
     icon: Briefcase,
   },
   {
@@ -18,6 +36,10 @@ const experiences = [
     period: "Previous",
     company: "Healthcare Industry",
     description: "Built strong foundations in communication, negotiation, and customer behavior understanding. This experience directly translated into effective ad copywriting and audience targeting skills.",
+    details: [
+      "Built strong foundations in communication, negotiation, and customer behavior understanding.",
+      "This experience directly translated into effective ad copywriting and audience targeting skills.",
+    ],
     icon: Briefcase,
   },
   {
@@ -25,6 +47,10 @@ const experiences = [
     period: "2023 - 2024",
     company: "Mansoura University",
     description: "Advanced scientific education that enhances analytical thinking and data-driven decision making — directly applicable to campaign analysis and optimization.",
+    details: [
+      "Advanced scientific education that enhances analytical thinking and data-driven decision making.",
+      "Directly applicable to campaign analysis and optimization.",
+    ],
     icon: GraduationCap,
   },
 ];
@@ -69,7 +95,7 @@ export default function ExperienceSection() {
                   <div className="w-12 h-12 rounded-lg bg-[oklch(0.72_0.16_200)]/10 flex items-center justify-center flex-shrink-0">
                     <Icon className="w-5 h-5 text-[oklch(0.72_0.16_200)]" />
                   </div>
-                  <div>
+                  <div className="flex-1">
                     <div className="flex flex-wrap items-center gap-3 mb-2">
                       <h3 className="text-lg text-white font-medium">
                         {exp.role}
@@ -78,12 +104,17 @@ export default function ExperienceSection() {
                         {exp.period}
                       </span>
                     </div>
-                    <p className="text-[oklch(0.72_0.16_200)] text-sm mb-2">
+                    <p className="text-[oklch(0.72_0.16_200)] text-sm mb-3">
                       {exp.company}
                     </p>
-                    <p className="text-muted-foreground text-sm leading-relaxed">
-                      {exp.description}
-                    </p>
+                    <ul className="space-y-2">
+                      {exp.details.map((detail, j) => (
+                        <li key={j} className="text-muted-foreground text-sm leading-relaxed flex items-start gap-2">
+                          <span className="w-1.5 h-1.5 rounded-full bg-[oklch(0.72_0.16_200)] mt-1.5 flex-shrink-0" />
+                          {detail}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
               </motion.div>
