@@ -1,6 +1,6 @@
 /**
  * About Section - Gulf Elegance Design
- * Personal introduction with photo and professional background
+ * Personal introduction with full-length photo and professional background
  */
 import { motion } from "framer-motion";
 
@@ -11,29 +11,35 @@ export default function AboutSection() {
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 gold-line" />
 
       <div className="container">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          {/* Photo */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+          {/* Photo - Full length portrait */}
           <motion.div
-            className="relative"
+            className="relative flex justify-center lg:justify-start"
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
           >
-            <div className="relative w-72 h-72 mx-auto lg:w-80 lg:h-80">
-              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[oklch(0.72_0.16_200)] to-[oklch(0.78_0.13_85)] opacity-20 blur-xl" />
-              <div className="relative w-full h-full rounded-full overflow-hidden border-2 border-[oklch(0.78_0.13_85)]/30 teal-glow">
+            <div className="relative w-56 md:w-64 lg:w-72">
+              {/* Glow behind image */}
+              <div className="absolute -inset-3 bg-gradient-to-br from-[oklch(0.72_0.16_200)]/20 to-[oklch(0.78_0.13_85)]/10 rounded-2xl blur-2xl" />
+              {/* Image container - portrait shape */}
+              <div className="relative overflow-hidden rounded-2xl border border-[oklch(0.78_0.13_85)]/20">
                 <img
-                  src="/manus-storage/profile_new2_15074c91.png"
+                  src="/manus-storage/9A5DD3F0-538E-482C-877C-D891F2AFFEEA_a1e077ec.png"
                   alt="Usama Mohamed"
-                  className="w-full h-full object-cover"
+                  className="w-full h-auto object-cover"
                 />
               </div>
+              {/* Decorative gold corner accents */}
+              <div className="absolute -top-2 -left-2 w-8 h-8 border-t-2 border-l-2 border-[oklch(0.78_0.13_85)]/50 rounded-tl-lg" />
+              <div className="absolute -bottom-2 -right-2 w-8 h-8 border-b-2 border-r-2 border-[oklch(0.78_0.13_85)]/50 rounded-br-lg" />
             </div>
           </motion.div>
 
           {/* Content */}
           <motion.div
+            className="lg:pt-8"
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
