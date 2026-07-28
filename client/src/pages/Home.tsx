@@ -12,6 +12,7 @@ import ProjectsGallery from "@/components/ProjectsGallery";
 import EducationSection from "@/components/EducationSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 export default function Home() {
   return (
@@ -37,6 +38,7 @@ export default function Home() {
         <ContactSection />
       </div>
       <Footer />
+      <WhatsAppButton />
     </div>
   );
 }
