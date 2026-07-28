@@ -10,6 +10,7 @@ import SkillsSection from "@/components/SkillsSection";
 import ExperienceSection from "@/components/ExperienceSection";
 import ProjectsGallery from "@/components/ProjectsGallery";
 import EducationSection from "@/components/EducationSection";
+import ClientLogos from "@/components/ClientLogos";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
@@ -33,6 +34,9 @@ export default function Home() {
       </div>
       <div id="education">
         <EducationSection />
+      </div>
+      <div id="clients">
+        <ClientLogos />
       </div>
       <div id="contact">
         <ContactSection />
