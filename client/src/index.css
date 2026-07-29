@@ -158,3 +158,11 @@
     color: oklch(0.78 0.13 85);
   }
 }
+
+/* Hide Manus branding banner */
+#manus-badge,
+[class*="made-with"],
+.manus-badge,
+[data-manus] {
+  display: none !important;
+}
