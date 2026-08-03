@@ -1,28 +1,34 @@
 /**
  * HOMZ Events — Amr Hassan Concert Case Study
- * Pages 6-15 from old portfolio PDF
+ * Platform-based filter: All, Meta, Creative
  */
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-type ViewType = "all" | "results" | "creative";
+type Platform = "all" | "meta" | "creative";
 
-const screenshots: { id: number; type: ViewType; label: string }[] = [
-  { id: 1, type: "results", label: "Campaign Strategy Overview" },
-  { id: 2, type: "results", label: "Role & Funnel Strategy" },
-  { id: 3, type: "results", label: "Funnel Automation Setup" },
-  { id: 4, type: "results", label: "Messaging Conversations Results" },
-  { id: 5, type: "results", label: "Daily Performance Breakdown" },
-  { id: 6, type: "results", label: "Meta Performance Metrics" },
-  { id: 7, type: "results", label: "70% Lower Cost Than Peers" },
-  { id: 8, type: "results", label: "Daily Results — Conversations" },
-  { id: 9, type: "results", label: "CTR & Engagement Metrics" },
-  { id: 10, type: "creative", label: "Creative Strategy" },
-  { id: 11, type: "creative", label: "Arabic Ad Creatives" },
-  { id: 12, type: "creative", label: "Ad Creative Examples" },
-  { id: 13, type: "creative", label: "Campaign Creatives" },
-  { id: 14, type: "creative", label: "More Ad Creatives" },
-  { id: 15, type: "results", label: "Saudi Market Performance" },
+const platformTabs: { id: Platform; label: string; color: string }[] = [
+  { id: "all", label: "All Screenshots", color: "text-[oklch(0.72_0.16_200)]" },
+  { id: "meta", label: "Meta Ads", color: "text-[#1877F2]" },
+  { id: "creative", label: "Ad Creatives", color: "text-[#FF0050]" },
+];
+
+const screenshots: { id: number; platform: Exclude<Platform, "all">; label: string }[] = [
+  { id: 1, platform: "meta", label: "Campaign Strategy Overview" },
+  { id: 2, platform: "meta", label: "Role & Funnel Strategy" },
+  { id: 3, platform: "meta", label: "Funnel Automation Setup" },
+  { id: 4, platform: "meta", label: "Messaging Conversations Results" },
+  { id: 5, platform: "meta", label: "Daily Performance Breakdown" },
+  { id: 6, platform: "meta", label: "Meta Performance Metrics" },
+  { id: 7, platform: "meta", label: "70% Lower Cost Than Peers" },
+  { id: 8, platform: "meta", label: "Daily Results — Conversations" },
+  { id: 9, platform: "meta", label: "CTR & Engagement Metrics" },
+  { id: 10, platform: "creative", label: "Creative Strategy" },
+  { id: 11, platform: "creative", label: "Arabic Ad Creatives" },
+  { id: 12, platform: "creative", label: "Ad Creative Examples" },
+  { id: 13, platform: "creative", label: "Campaign Creatives" },
+  { id: 14, platform: "creative", label: "More Ad Creatives" },
+  { id: 15, platform: "meta", label: "Saudi Market Performance" },
 ];
 
 const screenshotUrls: Record<number, string> = {
@@ -52,19 +58,13 @@ const metrics = [
   { value: "EGP 0.14", label: "CPC" },
 ];
 
-const viewTabs: { id: ViewType; label: string }[] = [
-  { id: "all", label: "All Screenshots" },
-  { id: "results", label: "Performance Results" },
-  { id: "creative", label: "Ad Creatives" },
-];
-
 export default function HOMZEventsProject() {
-  const [activeView, setActiveView] = useState<ViewType>("all");
+  const [activePlatform, setActivePlatform] = useState<Platform>("all");
   const [selectedScreenshot, setSelectedScreenshot] = useState<number | null>(null);
 
-  const filteredScreenshots = activeView === "all"
+  const filteredScreenshots = activePlatform === "all"
     ? screenshots
-    : screenshots.filter(s => s.type === activeView);
+    : screenshots.filter(s => s.platform === activePlatform);
 
   return (
     <div className="py-20 relative">
@@ -112,14 +112,14 @@ export default function HOMZEventsProject() {
         ))}
       </div>
 
-      {/* View Filter */}
+      {/* Platform Filter */}
       <div className="flex flex-wrap justify-center gap-2 mb-8">
-        {viewTabs.map((tab) => (
+        {platformTabs.map((tab) => (
           <button
             key={tab.id}
-            onClick={() => setActiveView(tab.id)}
+            onClick={() => setActivePlatform(tab.id)}
             className={`px-4 py-1.5 rounded-full text-xs font-medium transition-all duration-300 ${
-              activeView === tab.id
+              activePlatform === tab.id
                 ? "bg-[oklch(0.72_0.16_200)]/20 border border-[oklch(0.72_0.16_200)]/50 text-[oklch(0.72_0.16_200)]"
                 : "glass-card text-muted-foreground hover:text-foreground"
             }`}

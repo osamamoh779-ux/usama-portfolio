@@ -1,22 +1,31 @@
 /**
  * Fashion & Accessories Campaigns
+ * Platform-based filter: All, TikTok, Meta
  * Pages 19-20, 23, 30 from old portfolio PDF
  * Brands: Noir Abaya, POMA Shoes, CHANNEL BAG, VALE SHOES, Valentino
  */
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const screenshots: { id: number; label: string }[] = [
-  { id: 1, label: "TikTok Ads — Abaya Campaigns (Noir Abaya)" },
-  { id: 2, label: "TikTok Ads — Fashion Products Overview" },
-  { id: 3, label: "TikTok Performance — CTR & Conversions" },
-  { id: 4, label: "TikTok Noir Abaya — Full Results" },
-  { id: 5, label: "TikTok Fashion — Detailed Metrics" },
-  { id: 6, label: "TikTok Fashion — Additional Screens" },
-  { id: 7, label: "TikTok Noir Abaya — Extended Results" },
-  { id: 8, label: "TikTok Fashion — Campaign Details" },
-  { id: 9, label: "TikTok Noir Abaya — Complete Overview" },
-  { id: 10, label: "TikTok Noir Abaya — Final Metrics" },
+type Platform = "all" | "tiktok" | "meta";
+
+const platformTabs: { id: Platform; label: string; color: string }[] = [
+  { id: "all", label: "All Platforms", color: "text-[oklch(0.72_0.16_200)]" },
+  { id: "tiktok", label: "TikTok Ads", color: "text-[#FF0050]" },
+  { id: "meta", label: "Meta Ads", color: "text-[#1877F2]" },
+];
+
+const screenshots: { id: number; platform: Exclude<Platform, "all">; label: string }[] = [
+  { id: 1, platform: "tiktok", label: "TikTok — Abaya Campaigns (Noir Abaya)" },
+  { id: 2, platform: "tiktok", label: "TikTok — Fashion Products Overview" },
+  { id: 3, platform: "tiktok", label: "TikTok — CTR & Conversions" },
+  { id: 4, platform: "tiktok", label: "TikTok — Noir Abaya Full Results" },
+  { id: 5, platform: "tiktok", label: "TikTok — Fashion Detailed Metrics" },
+  { id: 6, platform: "tiktok", label: "TikTok — Fashion Additional Screens" },
+  { id: 7, platform: "tiktok", label: "TikTok — Noir Abaya Extended Results" },
+  { id: 8, platform: "tiktok", label: "TikTok — Fashion Campaign Details" },
+  { id: 9, platform: "tiktok", label: "TikTok — Noir Abaya Complete Overview" },
+  { id: 10, platform: "tiktok", label: "TikTok — Noir Abaya Final Metrics (306K Impressions, 975 Conversions)" },
 ];
 
 const screenshotUrls: Record<number, string> = {
@@ -42,7 +51,12 @@ const metrics = [
 ];
 
 export default function FashionCampaigns() {
+  const [activePlatform, setActivePlatform] = useState<Platform>("all");
   const [selectedScreenshot, setSelectedScreenshot] = useState<number | null>(null);
+
+  const filteredScreenshots = activePlatform === "all"
+    ? screenshots
+    : screenshots.filter(s => s.platform === activePlatform);
 
   return (
     <div className="py-20 relative">
@@ -75,7 +89,7 @@ export default function FashionCampaigns() {
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 mb-10">
         {metrics.map((metric, i) => (
           <motion.div
-            key={metric.label}
+            key={`${metric.label}-${i}`}
             className="glass-card rounded-xl p-3 text-center"
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -91,10 +105,27 @@ export default function FashionCampaigns() {
         ))}
       </div>
 
+      {/* Platform Filter */}
+      <div className="flex flex-wrap justify-center gap-2 mb-8">
+        {platformTabs.map((tab) => (
+          <button
+            key={tab.id}
+            onClick={() => setActivePlatform(tab.id)}
+            className={`px-4 py-1.5 rounded-full text-xs font-medium transition-all duration-300 ${
+              activePlatform === tab.id
+                ? "bg-[oklch(0.72_0.16_200)]/20 border border-[oklch(0.72_0.16_200)]/50 text-[oklch(0.72_0.16_200)]"
+                : "glass-card text-muted-foreground hover:text-foreground"
+            }`}
+          >
+            {tab.label}
+          </button>
+        ))}
+      </div>
+
       {/* Screenshots Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         <AnimatePresence mode="popLayout">
-          {screenshots.map((screenshot, i) => (
+          {filteredScreenshots.map((screenshot, i) => (
             <motion.div
               key={screenshot.id}
               layout

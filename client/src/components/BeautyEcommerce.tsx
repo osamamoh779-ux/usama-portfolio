@@ -1,27 +1,28 @@
 /**
  * Beauty & E-commerce Campaigns
+ * Platform-based filter: All, TikTok, Meta, Cart Recovery
  * Pages 16-18, 28-29 from old portfolio PDF
- * Brands: Glowy Skin, melectricksa, Beauty Product Store
+ * Brands: Glowy Skin, Cart Recovery, Beauty Product Store
  */
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-type Brand = "all" | "glowyskin" | "ecommerce" | "beauty";
+type Platform = "all" | "tiktok" | "meta" | "cart";
 
-const brandTabs: { id: Brand; label: string }[] = [
-  { id: "all", label: "All Campaigns" },
-  { id: "glowyskin", label: "Glowy Skin" },
-  { id: "ecommerce", label: "E-commerce" },
-  { id: "beauty", label: "Beauty Products" },
+const platformTabs: { id: Platform; label: string; color: string }[] = [
+  { id: "all", label: "All Platforms", color: "text-[oklch(0.72_0.16_200)]" },
+  { id: "tiktok", label: "TikTok Ads", color: "text-[#FF0050]" },
+  { id: "meta", label: "Meta Ads", color: "text-[#1877F2]" },
+  { id: "cart", label: "Cart Recovery", color: "text-[oklch(0.78_0.13_85)]" },
 ];
 
-const screenshots: { id: number; brand: Exclude<Brand, "all">; label: string }[] = [
-  { id: 1, brand: "glowyskin", label: "TikTok — Glowy Skin Campaigns" },
-  { id: 2, brand: "glowyskin", label: "TikTok — Glowy Skin Full Results" },
-  { id: 3, brand: "glowyskin", label: "TikTok — Glowy Skin Detailed Metrics" },
-  { id: 4, brand: "ecommerce", label: "Cart Recovery — Abandoned Carts" },
-  { id: 5, brand: "beauty", label: "Meta Ads — Beauty Conversion Funnel" },
-  { id: 6, brand: "beauty", label: "Meta Ads — Checkout & Payment Flow" },
+const screenshots: { id: number; platform: Exclude<Platform, "all">; label: string }[] = [
+  { id: 1, platform: "tiktok", label: "TikTok — Glowy Skin Campaigns" },
+  { id: 2, platform: "tiktok", label: "TikTok — Glowy Skin Full Results (541K Impressions)" },
+  { id: 3, platform: "tiktok", label: "TikTok — Glowy Skin Detailed Metrics" },
+  { id: 4, platform: "cart", label: "Cart Recovery — Abandoned Carts Dashboard" },
+  { id: 5, platform: "meta", label: "Meta Ads — Beauty Conversion Funnel" },
+  { id: 6, platform: "meta", label: "Meta Ads — Checkout & Payment Flow" },
 ];
 
 const screenshotUrls: Record<number, string> = {
@@ -43,12 +44,12 @@ const metrics = [
 ];
 
 export default function BeautyEcommerce() {
-  const [activeBrand, setActiveBrand] = useState<Brand>("all");
+  const [activePlatform, setActivePlatform] = useState<Platform>("all");
   const [selectedScreenshot, setSelectedScreenshot] = useState<number | null>(null);
 
-  const filteredScreenshots = activeBrand === "all"
+  const filteredScreenshots = activePlatform === "all"
     ? screenshots
-    : screenshots.filter(s => s.brand === activeBrand);
+    : screenshots.filter(s => s.platform === activePlatform);
 
   return (
     <div className="py-20 relative">
@@ -97,14 +98,14 @@ export default function BeautyEcommerce() {
         ))}
       </div>
 
-      {/* Brand Filter */}
+      {/* Platform Filter */}
       <div className="flex flex-wrap justify-center gap-2 mb-8">
-        {brandTabs.map((tab) => (
+        {platformTabs.map((tab) => (
           <button
             key={tab.id}
-            onClick={() => setActiveBrand(tab.id)}
+            onClick={() => setActivePlatform(tab.id)}
             className={`px-4 py-1.5 rounded-full text-xs font-medium transition-all duration-300 ${
-              activeBrand === tab.id
+              activePlatform === tab.id
                 ? "bg-[oklch(0.72_0.16_200)]/20 border border-[oklch(0.72_0.16_200)]/50 text-[oklch(0.72_0.16_200)]"
                 : "glass-card text-muted-foreground hover:text-foreground"
             }`}
