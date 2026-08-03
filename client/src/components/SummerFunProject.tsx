@@ -131,7 +131,7 @@ export default function SummerFunProject() {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-16">
           {metrics.map((metric, i) => (
             <motion.div
-              key={metric.label}
+              key={`${metric.label}-${i}`}
               className="glass-card rounded-xl p-4 text-center teal-glow"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}

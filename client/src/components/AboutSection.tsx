@@ -71,9 +71,9 @@ export default function AboutSection() {
                 { number: "50+", label: "Campaigns Managed" },
                 { number: "3.2M+", label: "Impressions" },
                 { number: "All Platforms", label: "Flexible" },
-              ].map((stat, i) => (
+                ].map((stat, i) => (
                 <motion.div
-                  key={stat.label}
+                  key={`${stat.label}-${i}`}
                   className="glass-card rounded-lg p-4 text-center"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}

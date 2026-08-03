@@ -81,7 +81,7 @@ export default function BeautyEcommerce() {
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 mb-10">
         {metrics.map((metric, i) => (
           <motion.div
-            key={metric.label}
+            key={`${metric.label}-${i}`}
             className="glass-card rounded-xl p-3 text-center"
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}

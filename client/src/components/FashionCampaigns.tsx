@@ -34,11 +34,11 @@ const screenshotUrls: Record<number, string> = {
 
 const metrics = [
   { value: "306,744", label: "Impressions", sub: "Noir Abaya" },
-  { value: "975", label: "Conversions", sub: "Noir Abaya" },
+  { value: "975", label: "Conversions (Noir)", sub: "Noir Abaya" },
   { value: "1.22 SAR", label: "Cost/Conversion", sub: "Noir Abaya" },
   { value: "0.95%", label: "CTR", sub: "Noir Abaya" },
   { value: "1.08 SAR", label: "CPC", sub: "Fashion" },
-  { value: "22", label: "Conversions", sub: "Fashion Brands" },
+  { value: "22", label: "Conversions (Fashion)", sub: "Fashion Brands" },
 ];
 
 export default function FashionCampaigns() {

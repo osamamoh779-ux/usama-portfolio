@@ -1,6 +1,7 @@
 /**
  * Message Floating Button - Gulf Elegance Design
  * Circular message icon with pulse animation - links to WhatsApp
+ * Positioned on the LEFT side to avoid Manus branding on the right
  */
 import { motion } from "framer-motion";
 import { MessageCircle } from "lucide-react";
@@ -20,8 +21,8 @@ export default function WhatsAppButton() {
       className="fixed z-[9999] w-14 h-14 flex items-center justify-center rounded-full shadow-lg hover:scale-110 active:scale-95 transition-transform duration-200"
       style={{
         backgroundColor: "oklch(0.72 0.16 200)",
-        bottom: "1.5rem",
-        right: "1.5rem",
+        bottom: "2rem",
+        left: "1.5rem",
       }}
       initial={{ opacity: 0, scale: 0 }}
       animate={{ opacity: 1, scale: 1 }}
