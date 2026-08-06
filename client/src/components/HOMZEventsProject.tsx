@@ -1,6 +1,7 @@
 /**
  * HOMZ Events — Amr Hassan Concert Case Study
  * Platform-based filter: All, Meta, Creative
+ * Removed: page_06 (experience page), page_08 (strategy text page), page_15 (Saudi Market intro text)
  */
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -14,39 +15,33 @@ const platformTabs: { id: Platform; label: string; color: string }[] = [
 ];
 
 const screenshots: { id: number; platform: Exclude<Platform, "all">; label: string }[] = [
-  { id: 1, platform: "meta", label: "Campaign Strategy Overview" },
-  { id: 2, platform: "meta", label: "Role & Funnel Strategy" },
-  { id: 3, platform: "meta", label: "Funnel Automation Setup" },
-  { id: 4, platform: "meta", label: "Messaging Conversations Results" },
-  { id: 5, platform: "meta", label: "Daily Performance Breakdown" },
-  { id: 6, platform: "meta", label: "Meta Performance Metrics" },
-  { id: 7, platform: "meta", label: "70% Lower Cost Than Peers" },
-  { id: 8, platform: "meta", label: "Daily Results — Conversations" },
-  { id: 9, platform: "meta", label: "CTR & Engagement Metrics" },
-  { id: 10, platform: "creative", label: "Creative Strategy" },
-  { id: 11, platform: "creative", label: "Arabic Ad Creatives" },
-  { id: 12, platform: "creative", label: "Ad Creative Examples" },
-  { id: 13, platform: "creative", label: "Campaign Creatives" },
-  { id: 14, platform: "creative", label: "More Ad Creatives" },
-  { id: 15, platform: "meta", label: "Saudi Market Performance" },
+  { id: 1, platform: "meta", label: "Project Overview — Amr Hassan Concert" },
+  { id: 2, platform: "meta", label: "Hard Results — 1,344 Conversations & CPA 1.39 EGP" },
+  { id: 3, platform: "meta", label: "Ads Manager Results — Messaging Conversations" },
+  { id: 4, platform: "meta", label: "Daily Performance — Conversations & Cost" },
+  { id: 5, platform: "meta", label: "Meta Performance Metrics — Engagement & CTR" },
+  { id: 6, platform: "meta", label: "70% Lower Cost Than Peers" },
+  { id: 7, platform: "meta", label: "Daily Results Breakdown" },
+  { id: 8, platform: "creative", label: "Creative Strategy — Emotional Content" },
+  { id: 9, platform: "creative", label: "Arabic Ad Creatives" },
+  { id: 10, platform: "creative", label: "Ad Creative Examples" },
+  { id: 11, platform: "creative", label: "Campaign Creatives" },
+  { id: 12, platform: "creative", label: "More Ad Creatives" },
 ];
 
 const screenshotUrls: Record<number, string> = {
-  1: "/manus-storage/page_06_2761f22b.png",
-  2: "/manus-storage/page_07_02e25476.png",
-  3: "/manus-storage/page_08_94c4f13f.png",
-  4: "/manus-storage/page_09_d16eeb08.png",
-  5: "/manus-storage/page_10_0ae9174a.png",
-  6: "/manus-storage/page_11_9c1b4b12.png",
-  7: "/manus-storage/page_12_a7137486.png",
-  8: "/manus-storage/page_13_b62da520.png",
-  9: "/manus-storage/page_14_a42e2c15.png",
-  10: "/manus-storage/page_15_015e690a.png",
-  11: "/manus-storage/page_16_503d74fc.png",
-  12: "/manus-storage/page_17_1ed420b5.png",
-  13: "/manus-storage/page_18_79ed1013.png",
-  14: "/manus-storage/page_19_bb4e44f3.png",
-  15: "/manus-storage/page_20_120e38ec.png",
+  1: "/manus-storage/page_07_02e25476.png",
+  2: "/manus-storage/page_09_d16eeb08.png",
+  3: "/manus-storage/page_10_0ae9174a.png",
+  4: "/manus-storage/page_11_9c1b4b12.png",
+  5: "/manus-storage/page_12_a7137486.png",
+  6: "/manus-storage/page_13_b62da520.png",
+  7: "/manus-storage/page_14_a42e2c15.png",
+  8: "/manus-storage/page_14_a42e2c15.png",
+  9: "/manus-storage/page_20_120e38ec.png",
+  10: "/manus-storage/page_21_ba493dc7.png",
+  11: "/manus-storage/page_22_63dcf866.png",
+  12: "/manus-storage/page_23_68917874.png",
 };
 
 const metrics = [
@@ -118,10 +113,10 @@ export default function HOMZEventsProject() {
           <button
             key={tab.id}
             onClick={() => setActivePlatform(tab.id)}
-            className={`px-4 py-1.5 rounded-full text-xs font-medium transition-all duration-300 ${
+            className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
               activePlatform === tab.id
-                ? "bg-[oklch(0.72_0.16_200)]/20 border border-[oklch(0.72_0.16_200)]/50 text-[oklch(0.72_0.16_200)]"
-                : "glass-card text-muted-foreground hover:text-foreground"
+                ? `${tab.color} border border-current bg-white/5`
+                : "text-muted-foreground hover:text-white border border-transparent hover:border-white/10"
             }`}
           >
             {tab.label}
@@ -130,64 +125,69 @@ export default function HOMZEventsProject() {
       </div>
 
       {/* Screenshots Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        <AnimatePresence mode="popLayout">
-          {filteredScreenshots.map((screenshot, i) => (
-            <motion.div
-              key={screenshot.id}
-              layout
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.35, delay: i * 0.04 }}
-              className="glass-card rounded-xl overflow-hidden group cursor-pointer"
-              onClick={() => setSelectedScreenshot(screenshot.id)}
-            >
-              <div className="relative overflow-hidden">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {filteredScreenshots.map((screenshot, i) => (
+          <motion.div
+            key={screenshot.id}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: i * 0.05 }}
+            className="group cursor-pointer"
+            onClick={() => setSelectedScreenshot(screenshot.id)}
+          >
+            <div className="relative overflow-hidden rounded-xl border border-white/5 glass-card">
+              <div className="aspect-[16/10] overflow-hidden">
                 <img
                   src={screenshotUrls[screenshot.id]}
                   alt={screenshot.label}
-                  className="w-full h-auto transition-transform duration-500 group-hover:scale-[1.02]"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="absolute bottom-0 left-0 p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <p className="text-white text-xs font-medium">{screenshot.label}</p>
-                </div>
               </div>
-            </motion.div>
-          ))}
-        </AnimatePresence>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute bottom-0 left-0 right-0 p-3 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                <p className="text-white text-xs font-medium">{screenshot.label}</p>
+                <p className="text-[oklch(0.72_0.16_200)] text-[10px] mt-0.5 uppercase tracking-wider">
+                  {screenshot.platform === "meta" ? "Meta Ads" : "Ad Creative"}
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        ))}
       </div>
 
       {/* Lightbox */}
       <AnimatePresence>
         {selectedScreenshot && (
           <motion.div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm p-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-sm flex items-center justify-center p-4"
             onClick={() => setSelectedScreenshot(null)}
           >
             <motion.div
-              className="relative max-w-5xl w-full max-h-[90vh] overflow-auto rounded-xl"
-              initial={{ scale: 0.95, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.95, opacity: 0 }}
-              transition={{ duration: 0.3, ease: [0.23, 1, 0.32, 1] }}
+              initial={{ scale: 0.9 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0.9 }}
+              className="relative max-w-5xl w-full"
               onClick={(e) => e.stopPropagation()}
             >
+              <button
+                onClick={() => setSelectedScreenshot(null)}
+                className="absolute -top-10 right-0 text-white/70 hover:text-white text-sm flex items-center gap-2"
+              >
+                ✕ Close
+              </button>
               <img
                 src={screenshotUrls[selectedScreenshot]}
                 alt={screenshots.find(s => s.id === selectedScreenshot)?.label}
-                className="w-full h-auto"
+                className="w-full rounded-xl shadow-2xl"
               />
-              <button
-                onClick={() => setSelectedScreenshot(null)}
-                className="absolute top-4 right-4 w-10 h-10 rounded-full bg-black/60 flex items-center justify-center text-white hover:bg-black/80 transition-colors"
-              >
-                ✕
-              </button>
+              <p className="text-white text-center mt-4 text-sm">
+                {screenshots.find(s => s.id === selectedScreenshot)?.label}
+              </p>
             </motion.div>
           </motion.div>
         )}
