@@ -1,7 +1,7 @@
 /**
  * HOMZ Events — Amr Hassan Concert Case Study
  * Platform-based filter: All, Meta, Creative
- * Removed: page_06 (experience page), page_08 (strategy text page), page_15 (Saudi Market intro text)
+ * Contains ONLY HOMZ-related screenshots (no Fashion pages, no duplicates)
  */
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -22,11 +22,6 @@ const screenshots: { id: number; platform: Exclude<Platform, "all">; label: stri
   { id: 5, platform: "meta", label: "Meta Performance Metrics — Engagement & CTR" },
   { id: 6, platform: "meta", label: "70% Lower Cost Than Peers" },
   { id: 7, platform: "meta", label: "Daily Results Breakdown" },
-  { id: 8, platform: "creative", label: "Creative Strategy — Emotional Content" },
-  { id: 9, platform: "creative", label: "Arabic Ad Creatives" },
-  { id: 10, platform: "creative", label: "Ad Creative Examples" },
-  { id: 11, platform: "creative", label: "Campaign Creatives" },
-  { id: 12, platform: "creative", label: "More Ad Creatives" },
 ];
 
 const screenshotUrls: Record<number, string> = {
@@ -37,11 +32,6 @@ const screenshotUrls: Record<number, string> = {
   5: "/manus-storage/page_12_a7137486.png",
   6: "/manus-storage/page_13_b62da520.png",
   7: "/manus-storage/page_14_a42e2c15.png",
-  8: "/manus-storage/page_14_a42e2c15.png",
-  9: "/manus-storage/page_20_120e38ec.png",
-  10: "/manus-storage/page_21_ba493dc7.png",
-  11: "/manus-storage/page_22_63dcf866.png",
-  12: "/manus-storage/page_23_68917874.png",
 };
 
 const metrics = [
