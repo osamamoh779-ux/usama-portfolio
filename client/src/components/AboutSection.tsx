@@ -39,7 +39,7 @@ export default function AboutSection() {
 
           {/* Content */}
           <motion.div
-            className="lg:pt-8"
+            className="lg:pt-8 min-w-0 w-full"
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -74,16 +74,16 @@ export default function AboutSection() {
                 ].map((stat, i) => (
                 <motion.div
                   key={`${stat.label}-${i}`}
-                  className="glass-card rounded-lg p-4 text-center"
+                  className="glass-card rounded-lg p-3 text-center min-w-0"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: 0.4 + i * 0.1 }}
                 >
-                  <div className="text-2xl font-bold text-[oklch(0.72_0.16_200)]" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+                  <div className="text-xl md:text-2xl font-bold text-[oklch(0.72_0.16_200)] leading-tight" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
                     {stat.number}
                   </div>
-                  <div className="text-xs text-muted-foreground mt-1">{stat.label}</div>
+                  <div className="text-xs text-muted-foreground mt-1 leading-tight">{stat.label}</div>
                 </motion.div>
               ))}
             </div>

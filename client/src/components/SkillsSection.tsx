@@ -96,7 +96,7 @@ export default function SkillsSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <p className="text-[oklch(0.78_0.13_85)] text-lg mb-6" style={{ fontFamily: "'Playfair Display', serif", fontStyle: "italic" }}>
+            <p className="text-[oklch(0.78_0.13_85)] text-lg mb-6 min-w-0" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
               Platforms I Work On
             </p>
             <p className="text-muted-foreground text-sm mb-6">

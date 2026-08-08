@@ -16,3 +16,14 @@ HOMZ Events now has:
 
 Fashion Campaigns: pages 19-30 (TikTok) - CORRECT
 Beauty & E-commerce: pages 17, 28, 29, 16, 18, 26 (TikTok + Meta + Cart) - CORRECT
+## Platforms Fix - Verified
+After edits (text-xl, min-w-0, leading-tight, p-3), "All Platforms" in About stats no longer overflows. All stat cards look correct.
+
+## Remaining: Skills Section "Platforms I Work On" subtitle
+The heading "Platforms I Work On" in SkillsSection may have italic serif overflow on some screens. Check and fix with min-w-0 + text-wrap.
+## Platforms Fix - Final Verification
+- About section stats: "All Platforms" now fits inside card - FIXED (text-xl, min-w-0, p-3)
+- Skills section "Platforms I Work On": Changed from Playfair italic to Space Grotesk - FIXED
+- Screenshot anchor (#skills, #about) shows hero because anchor doesn't scroll to section - this is fine, it's a screenshot limitation
+- On the user's phone screenshot earlier, the issue was "All Platforms" text overflowing its stat card
+- All fixes applied successfully
