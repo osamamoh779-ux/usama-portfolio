@@ -6,6 +6,7 @@
  */
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import GoogleAdsChart from "./GoogleAdsChart";
 
 type Platform = "all" | "tiktok" | "meta" | "google";
 
@@ -126,6 +127,31 @@ export default function FashionCampaigns() {
           </button>
         ))}
       </div>
+
+      {/* Google Ads Interactive Chart */}
+      <motion.div
+        className="max-w-4xl mx-auto mb-10"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+      >
+        <GoogleAdsChart
+          title="Google Ads — PMax Local Acquisition (KSA)"
+          subtitle="Saudi Arabia · May 12 – May 18, 2024 · Performance Max · Budget 200 SAR/day"
+          data={[
+            { label: "May 12", clicks: 230, conversions: 88 },
+            { label: "May 13", clicks: 290, conversions: 112 },
+            { label: "May 14", clicks: 265, conversions: 101 },
+            { label: "May 15", clicks: 310, conversions: 119 },
+            { label: "May 16", clicks: 345, conversions: 132 },
+            { label: "May 17", clicks: 300, conversions: 115 },
+            { label: "May 18", clicks: 310, conversions: 114 },
+          ]}
+          metricName1="Clicks"
+          metricName2="Conversions (Directions)"
+        />
+      </motion.div>
 
       {/* Screenshots Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">

@@ -4,25 +4,27 @@
  */
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import GoogleAdsChart from "./GoogleAdsChart";
 
-type Platform = "all" | "meta" | "tiktok" | "snapchat" | "google";
+type Platform = "all" | "meta" | "tiktok" | "snapchat" | "google" | "business";
 
 const platformTabs: { id: Platform; label: string; color: string }[] = [
   { id: "all", label: "All Platforms", color: "text-[oklch(0.72_0.16_200)]" },
   { id: "meta", label: "Meta Ads", color: "text-[#1877F2]" },
   { id: "tiktok", label: "TikTok Ads", color: "text-[#FF0050]" },
   { id: "snapchat", label: "Snapchat Ads", color: "text-[#FFFC00]" },
-  { id: "google", label: "Google Ads & Business", color: "text-[#4285F4]" },
+  { id: "google", label: "Google Ads", color: "text-[#4285F4]" },
+  { id: "business", label: "Google Business", color: "text-[#34A853]" },
 ];
 
 const screenshots: { id: number; platform: Exclude<Platform, "all">; label: string }[] = [
   { id: 1, platform: "meta", label: "Meta Campaigns Overview" },
   { id: 2, platform: "meta", label: "Meta Performance Metrics" },
   { id: 3, platform: "tiktok", label: "TikTok Campaigns List" },
-  { id: 4, platform: "google", label: "Google Business Profile" },
-  { id: 5, platform: "google", label: "Summer Fun - Google Maps" },
-  { id: 6, platform: "google", label: "Google Reviews - 4.3 Rating" },
-  { id: 7, platform: "google", label: "Customer Reviews Detail" },
+  { id: 4, platform: "business", label: "Google Business Profile" },
+  { id: 5, platform: "business", label: "Summer Fun - Google Maps" },
+  { id: 6, platform: "business", label: "Google Reviews - 4.3 Rating" },
+  { id: 7, platform: "business", label: "Customer Reviews Detail" },
   { id: 8, platform: "meta", label: "Meta Campaigns - Extended" },
   { id: 9, platform: "meta", label: "Meta Campaigns - Extended 2" },
   { id: 10, platform: "meta", label: "Meta Performance Extended" },
@@ -171,6 +173,30 @@ export default function SummerFunProject() {
             </button>
           ))}
         </div>
+
+        {/* Google Ads Interactive Chart */}
+        <motion.div
+          className="mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          <GoogleAdsChart
+            title="Google Ads — Local Acquisition Campaign"
+            subtitle="Saudi Arabia · Jul 1 – Aug 10, 2026 · Performance Max"
+            data={[
+              { label: "Jul 1-10", clicks: 120, conversions: 58 },
+              { label: "Jul 11-20", clicks: 210, conversions: 102 },
+              { label: "Jul 21-27", clicks: 380, conversions: 185 },
+              { label: "Jul 28-31", clicks: 620, conversions: 302 },
+              { label: "Aug 1-3", clicks: 2124, conversions: 1050 },
+              { label: "Aug 4-10", clicks: 746, conversions: 353 },
+            ]}
+            metricName1="Clicks"
+            metricName2="Local Actions (Directions)"
+          />
+        </motion.div>
 
         {/* Screenshots Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

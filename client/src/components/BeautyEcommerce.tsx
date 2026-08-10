@@ -6,6 +6,7 @@
  */
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import GoogleAdsChart from "./GoogleAdsChart";
 
 type Platform = "all" | "tiktok" | "meta" | "cart" | "google";
 
@@ -121,6 +122,30 @@ export default function BeautyEcommerce() {
           </button>
         ))}
       </div>
+
+      {/* Google Ads Interactive Chart */}
+      <motion.div
+        className="max-w-4xl mx-auto mb-10"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+      >
+        <GoogleAdsChart
+          title="Google Ads — PMax E-commerce Sales (Gulf Store)"
+          subtitle="Saudi Arabia · Jul 5 – Aug 4, 2026 · Performance Max · ROAS 4.3"
+          data={[
+            { label: "Jul 5-11", clicks: 620, conversions: 24 },
+            { label: "Jul 12-18", clicks: 1180, conversions: 46 },
+            { label: "Jul 19-25", clicks: 1560, conversions: 60 },
+            { label: "Jul 26", clicks: 1310, conversions: 64 },
+            { label: "Jul 27 - Aug 2", clicks: 2410, conversions: 92 },
+            { label: "Aug 3-4", clicks: 3030, conversions: 120 },
+          ]}
+          metricName1="Clicks"
+          metricName2="Purchases"
+        />
+      </motion.div>
 
       {/* Screenshots Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
