@@ -7,12 +7,13 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-type Platform = "all" | "tiktok" | "meta";
+type Platform = "all" | "tiktok" | "meta" | "google";
 
 const platformTabs: { id: Platform; label: string; color: string }[] = [
   { id: "all", label: "All Platforms", color: "text-[oklch(0.72_0.16_200)]" },
   { id: "tiktok", label: "TikTok Ads", color: "text-[#FF0050]" },
   { id: "meta", label: "Meta Ads", color: "text-[#1877F2]" },
+  { id: "google", label: "Google Ads", color: "text-[#4285F4]" },
 ];
 
 const screenshots: { id: number; platform: Exclude<Platform, "all">; label: string }[] = [
@@ -26,6 +27,7 @@ const screenshots: { id: number; platform: Exclude<Platform, "all">; label: stri
   { id: 8, platform: "tiktok", label: "TikTok — Fashion Campaign Details" },
   { id: 9, platform: "tiktok", label: "TikTok — Noir Abaya Complete Overview" },
   { id: 10, platform: "tiktok", label: "TikTok — Noir Abaya Final Metrics (306K Impressions, 975 Conversions)" },
+  { id: 11, platform: "google", label: "Google Ads — PMax Local Acquisition (KSA)" },
 ];
 
 const screenshotUrls: Record<number, string> = {
@@ -39,6 +41,7 @@ const screenshotUrls: Record<number, string> = {
   8: "/manus-storage/page_26_2538802a.png",
   9: "/manus-storage/page_27_99e17d5d.png",
   10: "/manus-storage/page_30_bbf87b8f.png",
+  11: "/manus-storage/google_ads_page-1_2406289d.png",
 };
 
 const metrics = [
@@ -48,6 +51,8 @@ const metrics = [
   { value: "0.95%", label: "CTR", sub: "Noir Abaya" },
   { value: "1.08 SAR", label: "CPC", sub: "Fashion" },
   { value: "22", label: "Conversions (Fashion)", sub: "Fashion Brands" },
+  { value: "781", label: "Google Conversions", sub: "PMax KSA" },
+  { value: "38.15%", label: "Google Conv. Rate", sub: "PMax KSA" },
 ];
 
 export default function FashionCampaigns() {

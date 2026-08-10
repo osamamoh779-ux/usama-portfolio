@@ -12,7 +12,7 @@ const platformTabs: { id: Platform; label: string; color: string }[] = [
   { id: "meta", label: "Meta Ads", color: "text-[#1877F2]" },
   { id: "tiktok", label: "TikTok Ads", color: "text-[#FF0050]" },
   { id: "snapchat", label: "Snapchat Ads", color: "text-[#FFFC00]" },
-  { id: "google", label: "Google Business", color: "text-[#4285F4]" },
+  { id: "google", label: "Google Ads & Business", color: "text-[#4285F4]" },
 ];
 
 const screenshots: { id: number; platform: Exclude<Platform, "all">; label: string }[] = [
@@ -31,6 +31,9 @@ const screenshots: { id: number; platform: Exclude<Platform, "all">; label: stri
   { id: 13, platform: "tiktok", label: "TikTok Video Performance" },
   { id: 14, platform: "tiktok", label: "TikTok Engagement Metrics" },
   { id: 15, platform: "tiktok", label: "TikTok Impressions Data" },
+  { id: 16, platform: "google", label: "Google Ads — Campaign Results" },
+  { id: 17, platform: "google", label: "Google Ads — Performance Chart" },
+  { id: 18, platform: "google", label: "Google Ads — Account Overview" },
 ];
 
 const screenshotUrls: Record<number, string> = {
@@ -49,6 +52,9 @@ const screenshotUrls: Record<number, string> = {
   13: "/manus-storage/screenshot_13_3172aded.png",
   14: "/manus-storage/screenshot_14_cba66e02.png",
   15: "/manus-storage/screenshot_15_080680fe.png",
+  16: "/manus-storage/google_ads_page-3_e3184a7d.png",
+  17: "/manus-storage/google_ads_page-4_de594f42.png",
+  18: "/manus-storage/google_ads_page-5_34217fd9.png",
 };
 
 const metrics = [
@@ -58,6 +64,8 @@ const metrics = [
   { value: "1.85M+", label: "TikTok Impressions", sublabel: "Total Views" },
   { value: "1,524 SAR", label: "Snapchat Spend", sublabel: "Multi-Campaign" },
   { value: "649", label: "Google Reviews", sublabel: "4.3 ★ Rating" },
+  { value: "2.2K", label: "Google Ads Clicks", sublabel: "5.89% CTR" },
+  { value: "884 SAR", label: "Google Ads Cost", sublabel: "Riyal 0.40 Avg. CPC" },
 ];
 
 export default function SummerFunProject() {

@@ -7,13 +7,14 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-type Platform = "all" | "tiktok" | "meta" | "cart";
+type Platform = "all" | "tiktok" | "meta" | "cart" | "google";
 
 const platformTabs: { id: Platform; label: string; color: string }[] = [
   { id: "all", label: "All Platforms", color: "text-[oklch(0.72_0.16_200)]" },
   { id: "tiktok", label: "TikTok Ads", color: "text-[#FF0050]" },
   { id: "meta", label: "Meta Ads", color: "text-[#1877F2]" },
   { id: "cart", label: "Cart Recovery", color: "text-[oklch(0.78_0.13_85)]" },
+  { id: "google", label: "Google Ads", color: "text-[#4285F4]" },
 ];
 
 const screenshots: { id: number; platform: Exclude<Platform, "all">; label: string }[] = [
@@ -23,6 +24,8 @@ const screenshots: { id: number; platform: Exclude<Platform, "all">; label: stri
   { id: 4, platform: "cart", label: "Cart Recovery — Abandoned Carts Dashboard" },
   { id: 5, platform: "meta", label: "Meta Ads — Beauty Conversion Funnel" },
   { id: 6, platform: "meta", label: "Meta Ads — Checkout & Payment Flow" },
+  { id: 7, platform: "google", label: "Google Ads — PMax E-commerce Sales (Saudi)" },
+  { id: 8, platform: "google", label: "Google Ads — Gulf Store Mobile Overview" },
 ];
 
 const screenshotUrls: Record<number, string> = {
@@ -32,6 +35,8 @@ const screenshotUrls: Record<number, string> = {
   4: "/manus-storage/page_16_503d74fc.png",
   5: "/manus-storage/page_18_79ed1013.png",
   6: "/manus-storage/page_26_2538802a.png",
+  7: "/manus-storage/google_ads_page-2_0c4bf156.png",
+  8: "/manus-storage/google_ads_page-6_c5254205.png",
 };
 
 const metrics = [
@@ -41,6 +46,8 @@ const metrics = [
   { value: "1.12%", label: "CTR", sub: "Glowy Skin" },
   { value: "2,286 SAR", label: "Total Spend", sub: "Glowy Skin" },
   { value: "1,086", label: "Landing Views", sub: "Beauty" },
+  { value: "4.3", label: "ROAS", sub: "Google Ads" },
+  { value: "212", label: "Conversions", sub: "Google Ads" },
 ];
 
 export default function BeautyEcommerce() {
