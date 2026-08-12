@@ -32,17 +32,17 @@ const screenshots: { id: number; platform: Exclude<Platform, "all">; label: stri
 ];
 
 const screenshotUrls: Record<number, string> = {
-  1: import.meta.env.BASE_URL + "assets/page_19_bb4e44f3.png",
-  2: import.meta.env.BASE_URL + "assets/page_20_120e38ec.png",
-  3: import.meta.env.BASE_URL + "assets/page_21_ba493dc7.png",
-  4: import.meta.env.BASE_URL + "assets/page_22_63dcf866.png",
-  5: import.meta.env.BASE_URL + "assets/page_23_68917874.png",
-  6: import.meta.env.BASE_URL + "assets/page_24_b3588974.png",
-  7: import.meta.env.BASE_URL + "assets/page_25_d1c065b4.png",
-  8: import.meta.env.BASE_URL + "assets/page_26_2538802a.png",
-  9: import.meta.env.BASE_URL + "assets/page_27_99e17d5d.png",
-  10: import.meta.env.BASE_URL + "assets/page_30_bbf87b8f.png",
-  11: import.meta.env.BASE_URL + "assets/google_ads_page-1_2406289d.png",
+  1: "https://raw.githubusercontent.com/osamamoh779-ux/usama-portfolio/main/client/public/assets/page_19_bb4e44f3.png",
+  2: "https://raw.githubusercontent.com/osamamoh779-ux/usama-portfolio/main/client/public/assets/page_20_120e38ec.png",
+  3: "https://raw.githubusercontent.com/osamamoh779-ux/usama-portfolio/main/client/public/assets/page_21_ba493dc7.png",
+  4: "https://raw.githubusercontent.com/osamamoh779-ux/usama-portfolio/main/client/public/assets/page_22_63dcf866.png",
+  5: "https://raw.githubusercontent.com/osamamoh779-ux/usama-portfolio/main/client/public/assets/page_23_68917874.png",
+  6: "https://raw.githubusercontent.com/osamamoh779-ux/usama-portfolio/main/client/public/assets/page_24_b3588974.png",
+  7: "https://raw.githubusercontent.com/osamamoh779-ux/usama-portfolio/main/client/public/assets/page_25_d1c065b4.png",
+  8: "https://raw.githubusercontent.com/osamamoh779-ux/usama-portfolio/main/client/public/assets/page_26_2538802a.png",
+  9: "https://raw.githubusercontent.com/osamamoh779-ux/usama-portfolio/main/client/public/assets/page_27_99e17d5d.png",
+  10: "https://raw.githubusercontent.com/osamamoh779-ux/usama-portfolio/main/client/public/assets/page_30_bbf87b8f.png",
+  11: "https://raw.githubusercontent.com/osamamoh779-ux/usama-portfolio/main/client/public/assets/google_ads_page-1_2406289d.png",
 };
 
 const metrics = [

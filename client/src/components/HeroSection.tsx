@@ -10,7 +10,7 @@ export default function HeroSection() {
       {/* Background */}
       <div className="absolute inset-0">
         <img
-          src={import.meta.env.BASE_URL + "assets/hero-bg_3836471f.png"}
+          src={"https://raw.githubusercontent.com/osamamoh779-ux/usama-portfolio/main/client/public/assets/hero-bg_3836471f.png"}
           alt=""
           className="w-full h-full object-cover opacity-40"
         />
@@ -30,7 +30,7 @@ export default function HeroSection() {
         >
           {/* Logo */}
           <img
-            src={import.meta.env.BASE_URL + "assets/logo-um_dee3d394.png"}
+            src={"https://raw.githubusercontent.com/osamamoh779-ux/usama-portfolio/main/client/public/assets/logo-um_dee3d394.png"}
             alt="UM Logo"
             className="w-20 h-20 mx-auto mb-6 opacity-90"
           />

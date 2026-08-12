@@ -37,7 +37,7 @@ export default function Navbar() {
         {/* Logo */}
         <a href="#" className="flex items-center gap-3">
           <img
-            src={import.meta.env.BASE_URL + "assets/logo-um_dee3d394.png"}
+            src={"https://raw.githubusercontent.com/osamamoh779-ux/usama-portfolio/main/client/public/assets/logo-um_dee3d394.png"}
             alt="UM"
             className="w-8 h-8"
           />

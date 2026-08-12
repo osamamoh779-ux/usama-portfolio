@@ -12,7 +12,7 @@ export default function Footer() {
 
       <div className="container text-center">
         <img
-          src={import.meta.env.BASE_URL + "assets/logo-um_dee3d394.png"}
+          src={"https://raw.githubusercontent.com/osamamoh779-ux/usama-portfolio/main/client/public/assets/logo-um_dee3d394.png"}
           alt="UM"
           className="w-12 h-12 mx-auto mb-6 opacity-60"
         />

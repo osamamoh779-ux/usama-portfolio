@@ -26,7 +26,7 @@ export default function AboutSection() {
               {/* Image container - portrait shape */}
               <div className="relative overflow-hidden rounded-2xl border border-[oklch(0.78_0.13_85)]/20">
                 <img
-                  src={import.meta.env.BASE_URL + "assets/9A5DD3F0-538E-482C-877C-D891F2AFFEEA_a1e077ec.png"}
+                  src={"https://raw.githubusercontent.com/osamamoh779-ux/usama-portfolio/main/client/public/assets/9A5DD3F0-538E-482C-877C-D891F2AFFEEA_a1e077ec.png"}
                   alt="Usama Mohamed"
                   className="w-full h-auto object-cover"
                 />

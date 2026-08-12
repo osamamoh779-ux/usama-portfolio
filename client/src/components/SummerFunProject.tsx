@@ -39,24 +39,24 @@ const screenshots: { id: number; platform: Exclude<Platform, "all">; label: stri
 ];
 
 const screenshotUrls: Record<number, string> = {
-  1: import.meta.env.BASE_URL + "assets/screenshot_01_5707affe.png",
-  2: import.meta.env.BASE_URL + "assets/screenshot_02_91d59ae6.png",
-  3: import.meta.env.BASE_URL + "assets/screenshot_03_61834636.png",
-  4: import.meta.env.BASE_URL + "assets/screenshot_04_207da0e1.png",
-  5: import.meta.env.BASE_URL + "assets/screenshot_05_97a223b0.png",
-  6: import.meta.env.BASE_URL + "assets/screenshot_06_ae383216.png",
-  7: import.meta.env.BASE_URL + "assets/screenshot_07_bcdeca9f.png",
-  8: import.meta.env.BASE_URL + "assets/screenshot_08_47bdee40.png",
-  9: import.meta.env.BASE_URL + "assets/screenshot_09_30fef6fc.png",
-  10: import.meta.env.BASE_URL + "assets/screenshot_10_0b6c178c.png",
-  11: import.meta.env.BASE_URL + "assets/screenshot_11_5f151c11.png",
-  12: import.meta.env.BASE_URL + "assets/screenshot_12_7561cd3a.png",
-  13: import.meta.env.BASE_URL + "assets/screenshot_13_3172aded.png",
-  14: import.meta.env.BASE_URL + "assets/screenshot_14_cba66e02.png",
-  15: import.meta.env.BASE_URL + "assets/screenshot_15_080680fe.png",
-  16: import.meta.env.BASE_URL + "assets/google_ads_page-3_e3184a7d.png",
-  17: import.meta.env.BASE_URL + "assets/google_ads_page-4_de594f42.png",
-  18: import.meta.env.BASE_URL + "assets/google_ads_page-5_34217fd9.png",
+  1: "https://raw.githubusercontent.com/osamamoh779-ux/usama-portfolio/main/client/public/assets/screenshot_01_5707affe.png",
+  2: "https://raw.githubusercontent.com/osamamoh779-ux/usama-portfolio/main/client/public/assets/screenshot_02_91d59ae6.png",
+  3: "https://raw.githubusercontent.com/osamamoh779-ux/usama-portfolio/main/client/public/assets/screenshot_03_61834636.png",
+  4: "https://raw.githubusercontent.com/osamamoh779-ux/usama-portfolio/main/client/public/assets/screenshot_04_207da0e1.png",
+  5: "https://raw.githubusercontent.com/osamamoh779-ux/usama-portfolio/main/client/public/assets/screenshot_05_97a223b0.png",
+  6: "https://raw.githubusercontent.com/osamamoh779-ux/usama-portfolio/main/client/public/assets/screenshot_06_ae383216.png",
+  7: "https://raw.githubusercontent.com/osamamoh779-ux/usama-portfolio/main/client/public/assets/screenshot_07_bcdeca9f.png",
+  8: "https://raw.githubusercontent.com/osamamoh779-ux/usama-portfolio/main/client/public/assets/screenshot_08_47bdee40.png",
+  9: "https://raw.githubusercontent.com/osamamoh779-ux/usama-portfolio/main/client/public/assets/screenshot_09_30fef6fc.png",
+  10: "https://raw.githubusercontent.com/osamamoh779-ux/usama-portfolio/main/client/public/assets/screenshot_10_0b6c178c.png",
+  11: "https://raw.githubusercontent.com/osamamoh779-ux/usama-portfolio/main/client/public/assets/screenshot_11_5f151c11.png",
+  12: "https://raw.githubusercontent.com/osamamoh779-ux/usama-portfolio/main/client/public/assets/screenshot_12_7561cd3a.png",
+  13: "https://raw.githubusercontent.com/osamamoh779-ux/usama-portfolio/main/client/public/assets/screenshot_13_3172aded.png",
+  14: "https://raw.githubusercontent.com/osamamoh779-ux/usama-portfolio/main/client/public/assets/screenshot_14_cba66e02.png",
+  15: "https://raw.githubusercontent.com/osamamoh779-ux/usama-portfolio/main/client/public/assets/screenshot_15_080680fe.png",
+  16: "https://raw.githubusercontent.com/osamamoh779-ux/usama-portfolio/main/client/public/assets/google_ads_page-3_e3184a7d.png",
+  17: "https://raw.githubusercontent.com/osamamoh779-ux/usama-portfolio/main/client/public/assets/google_ads_page-4_de594f42.png",
+  18: "https://raw.githubusercontent.com/osamamoh779-ux/usama-portfolio/main/client/public/assets/google_ads_page-5_34217fd9.png",
 };
 
 const metrics = [
@@ -119,7 +119,7 @@ export default function SummerFunProject() {
           transition={{ duration: 0.8 }}
         >
           <img
-            src={import.meta.env.BASE_URL + "assets/project-summer-fun_65707aae.png"}
+            src={"https://raw.githubusercontent.com/osamamoh779-ux/usama-portfolio/main/client/public/assets/project-summer-fun_65707aae.png"}
             alt="Summer Fun Brand"
             className="w-full h-64 md:h-80 object-cover transition-transform duration-700 group-hover:scale-105"
           />
