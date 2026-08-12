@@ -30,14 +30,14 @@ const screenshots: { id: number; platform: Exclude<Platform, "all">; label: stri
 ];
 
 const screenshotUrls: Record<number, string> = {
-  1: "/manus-storage/page_17_1ed420b5.png",
-  2: "/manus-storage/page_28_c7ea5883.png",
-  3: "/manus-storage/page_29_8de02829.png",
-  4: "/manus-storage/page_16_503d74fc.png",
-  5: "/manus-storage/page_18_79ed1013.png",
-  6: "/manus-storage/page_26_2538802a.png",
-  7: "/manus-storage/google_ads_page-2_0c4bf156.png",
-  8: "/manus-storage/google_ads_page-6_c5254205.png",
+  1: import.meta.env.BASE_URL + "assets/page_17_1ed420b5.png",
+  2: import.meta.env.BASE_URL + "assets/page_28_c7ea5883.png",
+  3: import.meta.env.BASE_URL + "assets/page_29_8de02829.png",
+  4: import.meta.env.BASE_URL + "assets/page_16_503d74fc.png",
+  5: import.meta.env.BASE_URL + "assets/page_18_79ed1013.png",
+  6: import.meta.env.BASE_URL + "assets/page_26_2538802a.png",
+  7: import.meta.env.BASE_URL + "assets/google_ads_page-2_0c4bf156.png",
+  8: import.meta.env.BASE_URL + "assets/google_ads_page-6_c5254205.png",
 };
 
 const metrics = [
