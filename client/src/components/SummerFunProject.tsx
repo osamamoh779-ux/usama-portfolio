@@ -174,14 +174,18 @@ export default function SummerFunProject() {
           ))}
         </div>
 
-        {/* Google Ads Interactive Chart */}
-        <motion.div
-          className="mb-12"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-        >
+        {/* Google Ads Interactive Chart — shown only with Google Ads filter or All */}
+        <AnimatePresence>
+          {(activePlatform === "all" || activePlatform === "google") && (
+            <motion.div
+              key="google-chart"
+              className="mb-12"
+              layout
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10, height: 0 }}
+              transition={{ duration: 0.4 }}
+            >
           <GoogleAdsChart
             title="Google Ads — Local Acquisition Campaign"
             subtitle="Saudi Arabia · Jul 1 – Aug 10, 2026 · Performance Max"
@@ -196,7 +200,9 @@ export default function SummerFunProject() {
             metricName1="Clicks"
             metricName2="Local Actions (Directions)"
           />
-        </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         {/* Screenshots Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

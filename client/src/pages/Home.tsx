@@ -29,11 +29,11 @@ export default function Home() {
       <div id="services">
         <ServicesSection />
       </div>
-      <div id="experience">
-        <ExperienceSection />
-      </div>
       <div id="projects">
         <ProjectsGallery />
+      </div>
+      <div id="experience">
+        <ExperienceSection />
       </div>
       <div id="education">
         <EducationSection />

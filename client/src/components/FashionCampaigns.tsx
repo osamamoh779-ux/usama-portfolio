@@ -128,14 +128,18 @@ export default function FashionCampaigns() {
         ))}
       </div>
 
-      {/* Google Ads Interactive Chart */}
-      <motion.div
-        className="max-w-4xl mx-auto mb-10"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-      >
+      {/* Google Ads Interactive Chart — shown only with Google Ads filter or All */}
+      <AnimatePresence>
+        {(activePlatform === "all" || activePlatform === "google") && (
+          <motion.div
+            key="google-chart"
+            className="max-w-4xl mx-auto mb-10"
+            layout
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.4 }}
+          >
         <GoogleAdsChart
           title="Google Ads — PMax Local Acquisition (KSA)"
           subtitle="Saudi Arabia · May 12 – May 18, 2024 · Performance Max · Budget 200 SAR/day"
@@ -151,7 +155,9 @@ export default function FashionCampaigns() {
           metricName1="Clicks"
           metricName2="Conversions (Directions)"
         />
-      </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Screenshots Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
