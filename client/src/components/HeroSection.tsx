@@ -65,7 +65,7 @@ export default function HeroSection() {
           Media Buyer | Digital Marketing Specialist
           <br />
           <span className="text-[oklch(0.72_0.16_200)]">
-            Saudi & GCC Market Expert
+            Saudi, Kuwait & GCC Market
           </span>
         </motion.p>
 
