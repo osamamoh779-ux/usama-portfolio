@@ -60,7 +60,7 @@ const cases: ClientCase[] = [
       },
     ],
     evidenceCount: 4,
-    prefix: "houssam-ads",
+    prefix: "houssam-native",
     extension: "webp",
     evidenceLabels: [
       "Meta Ads Manager — campaigns",
@@ -98,7 +98,7 @@ const cases: ClientCase[] = [
       },
     ],
     evidenceCount: 4,
-    prefix: "artwooden-ads",
+    prefix: "artwooden-native",
     extension: "webp",
     evidenceLabels: [
       "Meta Ads Manager — campaigns",
@@ -137,7 +137,7 @@ const cases: ClientCase[] = [
       },
     ],
     evidenceCount: 6,
-    prefix: "alqibla-ads",
+    prefix: "alqibla-native",
     extension: "webp",
     evidenceLabels: [
       "Meta Ads Manager — campaign results",
@@ -178,7 +178,7 @@ const cases: ClientCase[] = [
       },
     ],
     evidenceCount: 7,
-    prefix: "signature-ads",
+    prefix: "signature-native",
     extension: "webp",
     evidenceLabels: [
       "Meta Ads Manager — campaign results",
@@ -220,7 +220,7 @@ const cases: ClientCase[] = [
       },
     ],
     evidenceCount: 6,
-    prefix: "to-glow-ads",
+    prefix: "to-glow-native",
     extension: "webp",
     evidenceLabels: [
       "Meta Ads Manager — campaigns",
@@ -313,6 +313,7 @@ export default function KuwaitEgyptPortfolio({ market }: { market: Market }) {
   const marketCases = cases.filter(item => item.market === market);
   const [activeCaseId, setActiveCaseId] = useState<CaseId>(marketCases[0].id);
   const [selectedEvidence, setSelectedEvidence] = useState<number | null>(null);
+  const [evidenceZoom, setEvidenceZoom] = useState(false);
   const activeCase =
     marketCases.find(item => item.id === activeCaseId) ?? marketCases[0];
 
@@ -469,7 +470,10 @@ export default function KuwaitEgyptPortfolio({ market }: { market: Market }) {
                     type="button"
                     aria-label={`Open ${activeCase.name} ${activeCase.evidenceLabels?.[index] ?? `evidence ${evidenceNumber}`}`}
                     className="glass-card rounded-xl overflow-hidden group text-left"
-                    onClick={() => setSelectedEvidence(evidenceNumber)}
+                    onClick={() => {
+                      setEvidenceZoom(false);
+                      setSelectedEvidence(evidenceNumber);
+                    }}
                     whileHover={{ y: -3 }}
                   >
                     <div className="relative overflow-hidden">
@@ -477,7 +481,7 @@ export default function KuwaitEgyptPortfolio({ market }: { market: Market }) {
                         src={asset(fileName)}
                         loading="lazy"
                         alt={`${activeCase.name}: ${activeCase.evidenceLabels?.[index] ?? `campaign evidence ${evidenceNumber}`}`}
-                        className="w-full h-auto transition-transform duration-500 group-hover:scale-[1.02]"
+                        className="block max-w-full w-auto h-auto mx-auto"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                       <span className="absolute bottom-3 left-3 text-white text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -506,18 +510,51 @@ export default function KuwaitEgyptPortfolio({ market }: { market: Market }) {
             onClick={() => setSelectedEvidence(null)}
           >
             <motion.div
-              className="relative max-w-6xl w-full max-h-[90vh] overflow-auto rounded-xl"
+              className="relative w-full max-w-[96vw] rounded-xl bg-black/80"
               initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               onClick={event => event.stopPropagation()}
             >
-              <img
-                src={asset(
-                  `${activeCase.prefix}-${selectedEvidence}.${activeCase.extension ?? "png"}`
-                )}
-                alt={`${activeCase.name} campaign evidence ${selectedEvidence}`}
-                className="w-full h-auto"
-              />
+              <div className="flex items-center justify-between gap-3 px-4 py-3 pr-16 text-white">
+                <span className="text-sm">{activeCase.name}</span>
+                <div className="flex items-center gap-3 text-sm">
+                  <button
+                    type="button"
+                    onClick={() => setEvidenceZoom(!evidenceZoom)}
+                    aria-label={
+                      evidenceZoom
+                        ? "Fit full screenshot"
+                        : "View screenshot at original size"
+                    }
+                    className="rounded-lg border border-white/30 px-3 py-2"
+                  >
+                    {evidenceZoom ? "Fit full image" : "Original size"}
+                  </button>
+                  <a
+                    href={asset(
+                      `${activeCase.prefix}-${selectedEvidence}.${activeCase.extension ?? "png"}`
+                    )}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline"
+                  >
+                    Open image
+                  </a>
+                </div>
+              </div>
+              <div className="max-h-[78vh] overflow-auto p-2">
+                <img
+                  src={asset(
+                    `${activeCase.prefix}-${selectedEvidence}.${activeCase.extension ?? "png"}`
+                  )}
+                  alt={`${activeCase.name} campaign evidence ${selectedEvidence}`}
+                  className={
+                    evidenceZoom
+                      ? "block max-w-none w-auto h-auto"
+                      : "block mx-auto w-auto h-auto max-w-full max-h-[74vh] object-contain"
+                  }
+                />
+              </div>
               <button
                 type="button"
                 aria-label="Close evidence"
