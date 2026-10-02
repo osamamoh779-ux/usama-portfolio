@@ -376,121 +376,115 @@ export default function KuwaitEgyptPortfolio({ market }: { market: Market }) {
           ))}
         </div>
 
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={activeCase.id}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.35 }}
-          >
-            <div className="glass-card rounded-2xl p-6 md:p-8 mb-10">
-              <div className="grid md:grid-cols-[1fr_2fr] gap-6 mb-8">
-                <div>
-                  {activeCase.logo && (
-                    <img
-                      src={asset(activeCase.logo)}
-                      alt={`${activeCase.name} logo`}
-                      className="w-24 h-24 object-contain rounded-xl bg-white p-2 mb-4"
-                    />
-                  )}
-                  <p className="text-xs tracking-widest text-[oklch(0.72_0.16_200)] uppercase mb-2">
-                    {activeCase.market} Market
-                  </p>
-                  <h3
-                    className="text-3xl text-white"
-                    style={{ fontFamily: "'Playfair Display', serif" }}
-                  >
-                    {activeCase.name}
-                  </h3>
-                  <p className="text-muted-foreground mt-2">
-                    {activeCase.category}
-                  </p>
-                </div>
-                <div className="grid sm:grid-cols-2 gap-4 text-sm">
-                  <div>
-                    <span className="text-muted-foreground block text-xs uppercase tracking-wider mb-1">
-                      Platforms
-                    </span>
-                    <span className="text-foreground">
-                      {activeCase.platforms}
-                    </span>
-                  </div>
-                  <div>
-                    <span className="text-muted-foreground block text-xs uppercase tracking-wider mb-1">
-                      Scope
-                    </span>
-                    <span className="text-foreground">{activeCase.scope}</span>
-                  </div>
-                </div>
-              </div>
-              {activeCase.period && (
-                <p className="text-xs text-muted-foreground mb-4">
-                  Reporting period: {activeCase.period}
-                </p>
-              )}
-              {activeCase.summary && (
-                <p className="text-sm text-foreground leading-relaxed mb-6 max-w-4xl">
-                  {activeCase.summary}
-                </p>
-              )}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
-                {activeCase.metrics.map(metric => (
-                  <div
-                    key={metric.label}
-                    className="glass-card rounded-xl p-5 text-center teal-glow"
-                  >
-                    <div
-                      className="text-2xl font-bold text-white"
-                      style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-                    >
-                      {metric.value}
-                    </div>
-                    <div className="text-xs text-[oklch(0.72_0.16_200)] mt-1">
-                      {metric.label}
-                    </div>
-                    <div className="text-xs text-muted-foreground">
-                      {metric.sublabel}
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {Array.from(
-                  { length: activeCase.evidenceCount },
-                  (_, index) => {
-                    const evidenceNumber = index + 1;
-                    const fileName = `${activeCase.prefix}-${evidenceNumber}.${activeCase.extension ?? "png"}`;
-                    return (
-                      <motion.button
-                        key={fileName}
-                        type="button"
-                        aria-label={`Open ${activeCase.name} ${activeCase.evidenceLabels?.[index] ?? `evidence ${evidenceNumber}`}`}
-                        className="glass-card rounded-xl overflow-hidden group text-left"
-                        onClick={() => setSelectedEvidence(evidenceNumber)}
-                        whileHover={{ y: -3 }}
-                      >
-                        <div className="relative overflow-hidden">
-                          <img
-                            src={asset(fileName)}
-                            loading="lazy"
-                            alt={`${activeCase.name}: ${activeCase.evidenceLabels?.[index] ?? `campaign evidence ${evidenceNumber}`}`}
-                            className="w-full h-auto transition-transform duration-500 group-hover:scale-[1.02]"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                          <span className="absolute bottom-3 left-3 text-white text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            {activeCase.evidenceLabels?.[index] ??
-                              `View evidence ${evidenceNumber}`}
-                          </span>
-                        </div>
-                      </motion.button>
-                    );
-                  }
+        <motion.div
+          key={activeCase.id}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.35 }}
+        >
+          <div className="glass-card rounded-2xl p-6 md:p-8 mb-10">
+            <div className="grid md:grid-cols-[1fr_2fr] gap-6 mb-8">
+              <div>
+                {activeCase.logo && (
+                  <img
+                    src={asset(activeCase.logo)}
+                    alt={`${activeCase.name} logo`}
+                    className="w-24 h-24 object-contain rounded-xl bg-white p-2 mb-4"
+                  />
                 )}
+                <p className="text-xs tracking-widest text-[oklch(0.72_0.16_200)] uppercase mb-2">
+                  {activeCase.market} Market
+                </p>
+                <h3
+                  className="text-3xl text-white"
+                  style={{ fontFamily: "'Playfair Display', serif" }}
+                >
+                  {activeCase.name}
+                </h3>
+                <p className="text-muted-foreground mt-2">
+                  {activeCase.category}
+                </p>
+              </div>
+              <div className="grid sm:grid-cols-2 gap-4 text-sm">
+                <div>
+                  <span className="text-muted-foreground block text-xs uppercase tracking-wider mb-1">
+                    Platforms
+                  </span>
+                  <span className="text-foreground">
+                    {activeCase.platforms}
+                  </span>
+                </div>
+                <div>
+                  <span className="text-muted-foreground block text-xs uppercase tracking-wider mb-1">
+                    Scope
+                  </span>
+                  <span className="text-foreground">{activeCase.scope}</span>
+                </div>
               </div>
             </div>
-          </motion.div>
-        </AnimatePresence>
+            {activeCase.period && (
+              <p className="text-xs text-muted-foreground mb-4">
+                Reporting period: {activeCase.period}
+              </p>
+            )}
+            {activeCase.summary && (
+              <p className="text-sm text-foreground leading-relaxed mb-6 max-w-4xl">
+                {activeCase.summary}
+              </p>
+            )}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+              {activeCase.metrics.map(metric => (
+                <div
+                  key={metric.label}
+                  className="glass-card rounded-xl p-5 text-center teal-glow"
+                >
+                  <div
+                    className="text-2xl font-bold text-white"
+                    style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                  >
+                    {metric.value}
+                  </div>
+                  <div className="text-xs text-[oklch(0.72_0.16_200)] mt-1">
+                    {metric.label}
+                  </div>
+                  <div className="text-xs text-muted-foreground">
+                    {metric.sublabel}
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {Array.from({ length: activeCase.evidenceCount }, (_, index) => {
+                const evidenceNumber = index + 1;
+                const fileName = `${activeCase.prefix}-${evidenceNumber}.${activeCase.extension ?? "png"}`;
+                return (
+                  <motion.button
+                    key={fileName}
+                    type="button"
+                    aria-label={`Open ${activeCase.name} ${activeCase.evidenceLabels?.[index] ?? `evidence ${evidenceNumber}`}`}
+                    className="glass-card rounded-xl overflow-hidden group text-left"
+                    onClick={() => setSelectedEvidence(evidenceNumber)}
+                    whileHover={{ y: -3 }}
+                  >
+                    <div className="relative overflow-hidden">
+                      <img
+                        src={asset(fileName)}
+                        loading="lazy"
+                        alt={`${activeCase.name}: ${activeCase.evidenceLabels?.[index] ?? `campaign evidence ${evidenceNumber}`}`}
+                        className="w-full h-auto transition-transform duration-500 group-hover:scale-[1.02]"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      <span className="absolute bottom-3 left-3 text-white text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        {activeCase.evidenceLabels?.[index] ??
+                          `View evidence ${evidenceNumber}`}
+                      </span>
+                    </div>
+                  </motion.button>
+                );
+              })}
+            </div>
+          </div>
+        </motion.div>
       </div>
 
       <AnimatePresence>
